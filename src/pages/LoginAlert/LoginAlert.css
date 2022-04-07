@@ -1,0 +1,12 @@
+h1{
+    margin-top: 20%;
+}
+
+a{
+    color: #1ED760;
+    cursor: pointer;
+    text-decoration: none;
+}
+a:hover{
+    color: #43e57d; 
+}

@@ -1,0 +1,66 @@
+.search__item{
+    grid-area: header;
+}
+.playlist__item{
+  position: fixed;
+  grid-area: menu;
+  top: 0;
+  /* background-color: #1ED760; */
+}
+.playlist__item p{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  text-align: left;
+}
+.playlist__item span{
+  color: #43e57d;
+}
+.tracks__item{
+    grid-area: main;
+}
+.right__item{grid-area: right;}
+.footer__item{grid-area: footer;}
+
+.container{
+    display: grid;
+    grid-template-areas:
+    'header header header header header header'
+    'menu main main main main right'
+    'menu footer footer footer footer footer';
+    gap: 10px;
+    /* background-color: #2196F3; */
+    padding: 10px;
+}
+
+.container > div {
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+
+  .btn__playlist{
+    color: whitesmoke;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #1ED760;
+    cursor: pointer;
+  }
+  .btn__playlist:hover{
+    background-color: #43e57d;
+  }
+
+.logout{
+  margin-top: -10px;
+  text-align: right;
+}
+.logout__btn{
+  background-color: #1ED760;
+  width: 70px;
+  height: 30px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.logout__btn:hover{
+  background-color: #43e57d;
+}

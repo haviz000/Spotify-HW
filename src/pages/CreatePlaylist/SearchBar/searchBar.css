@@ -1,0 +1,37 @@
+.searchBar__container{
+  margin-top: -20%;
+}
+.title__track{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 50px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  .title__track span{
+    color:#1ED760;
+  }
+
+  .input__playlist{
+    margin-bottom: 40px;
+    margin-left: 40px;
+    width: 450px;
+    height: 40px;
+    border: #fff solid 1px;
+    border-radius: 20px;
+    padding-left: 20px;
+    background-color: whitesmoke;
+  }
+
+  .btn__search{
+    height: 40px;
+    width: 50px;
+    color: #000;
+    background-color: #1ED760;
+    border-radius: 10px;
+    margin-left: 4px;
+    cursor:pointer;
+  }
+  .btn__search:hover{
+      background-color: #43e57d;
+  }

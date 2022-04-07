@@ -1,0 +1,88 @@
+.playlist {
+	position: relative;
+	display: flex;
+	background-color: #1C2025;
+	color: #DCDCE0;
+	padding: 30px;
+	border-radius: 20px;
+	margin-bottom: 20px;
+	width: 650px;
+	height: 200px;
+	justify-content: space-evenly;
+  margin-left: 20%;
+  }
+
+ul{
+    list-style-type: none;
+}
+  .album__img {
+	width: 150px;
+	height: 150px;
+	border-radius: 20px;
+	margin-left: 50px;
+	left: 0;
+	position: absolute;
+  }
+
+  .text__group{
+    justify-content: center;
+}
+
+.song__title{
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+    position: absolute;
+    left: 0;
+    margin-left: 220px;
+	background-color: #1C2025;
+}
+.song__artist{
+    font-size: small;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    color: whitesmoke;
+    position: absolute;
+    left: 0;
+    margin-left: 220px;
+    margin-top: 50px;
+	background-color: #1C2025;
+}
+.song__popularity{
+  font-size: small;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  position: absolute;
+  background-color: #1C2025;
+  left: 0;
+  margin-left: 220px;
+  margin-top: 120px;
+  color: whitesmoke;
+}
+.song__popularity span{
+  color:gold;
+}
+.card__action{
+    background-color: #1C2025;
+    margin-left: 510px;
+    margin-top: 50px;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    border: 0;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100px;
+    text-decoration: none;
+  }
+  
+  .btn-primary {
+    background-color: #1ED760;
+  }
+  
+  .btn-secondary {
+    background-color: #43e57d;
+    font-weight: 500;
+  }

@@ -1,0 +1,30 @@
+.login__container{
+    margin-top: 20%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.login__logo{
+    background-image: url(https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Green.png);
+    background-size: 150px;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 45px;
+    margin: auto;
+}
+
+.login__title{
+    font-size: large;
+}
+
+.login__btn{
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #1ED760;
+    color: #000;
+    border: #000 solid 1px;
+    cursor: pointer;
+}
+.login__btn:hover{
+    background-color: #43e57d;
+  }

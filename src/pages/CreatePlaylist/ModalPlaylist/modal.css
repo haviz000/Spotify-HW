@@ -1,0 +1,83 @@
+.modal{
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    padding-top: 100px;
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.4);
+    -webkit-transition: 0.5s;
+    overflow: auto;
+    transition: all 0.3s linear;
+    scroll-behavior: none;
+  }
+
+  .modal__content{
+      margin-top: -15%;
+      background-color: #1C2025;
+      margin: auto;
+      padding: 20px;
+      border-radius: 4px;
+      max-width: 300px;
+      height: 450px;
+      opacity: 0.9;
+  }
+
+  .title__modal{
+      font-size: larger;
+  }
+  
+.title{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.title label{
+    font-size: large;
+    margin-bottom: 8px;
+    background-color: none;
+
+}
+
+span{
+    color: #43e57d;
+  }
+
+.desc{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 30px;
+
+}
+.desc label{
+    font-size: large;
+    margin-bottom: 8px;
+
+}
+
+.input{
+    background-color: #fefefe;
+    height: 20px;
+    border-radius: 10px;
+  }
+.textarea{
+    background-color: #fefefe;
+    height: 80px;
+    border-radius: 10px;
+  }
+
+  .save{
+    background-color: #1ED760;
+    margin-top: 40px;
+    width: 100px;
+    height: 30px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  .save:hover{
+    background-color: #43e57d;
+  }

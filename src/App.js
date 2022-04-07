@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import CreatePlaylist from "./pages/CreatePlaylist";
+import Main from "./pages/Main";
+import NotFound from "./pages/NotFound/index.jsx";
+import LoginAlert from "./pages/LoginAlert/index";
+import { useSelector } from "react-redux";
 
 function App() {
+  const isAuth = useSelector((state) => state.auth.isAuth);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Switch>
+          <Route path="/create-playlist">
+            {isAuth ? <CreatePlaylist /> : <LoginAlert />}
+          </Route>
+          <Route exact path="/">
+            <Main />
+          </Route>
+          <Route>
+            <NotFound />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
