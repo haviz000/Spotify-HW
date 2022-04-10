@@ -5,6 +5,7 @@ import Main from "./pages/Main";
 import NotFound from "./pages/NotFound/index.jsx";
 import LoginAlert from "./pages/LoginAlert/index";
 import { useSelector } from "react-redux";
+import YourPlaylist from "./pages/CreatePlaylist/YourPlaylist";
 
 function App() {
   const isAuth = useSelector((state) => state.auth.isAuth);
@@ -14,6 +15,9 @@ function App() {
         <Switch>
           <Route path="/create-playlist">
             {isAuth ? <CreatePlaylist /> : <LoginAlert />}
+          </Route>
+          <Route path="/your-playlist">
+            {isAuth ? <YourPlaylist/> : <LoginAlert/>}
           </Route>
           <Route exact path="/">
             <Main />

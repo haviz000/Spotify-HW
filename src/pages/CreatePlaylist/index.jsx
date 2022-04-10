@@ -1,29 +1,35 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignOut, faPlusSquare } from "@fortawesome/free-solid-svg-icons";
+import { faPlusSquare } from "@fortawesome/free-solid-svg-icons";
 import SearchBar from "./SearchBar";
 import Tracks from "./Tracks";
 import ModalPlaylist from "./ModalPlaylist";
 import Playlist from "./Playlist";
 
 import './createPlaylist.css'
+import { useDispatch } from "react-redux";
+import { getPlaylist } from "../../slice/playlistDataSlice";
 
 
 
 const CreatePlaylist = () => {
   const [tracks, setTracks] = useState([]);
   const [selectedTracksUri, setSelectedTracksUri] = useState([]);
-  const [isInSearch, setIsInSearch] = useState(false);
   const [showModalPlaylist, setShowModalPlaylist] = useState(false);
   const [titlePlaylist, setTitlePlaylist] = useState("");
-  const [descPlaylist, setDescPlaylist] = useState("");
   const [playlistData, setPlaylistData] = useState([]);
   const [playlistDataTitle, setPlaylistDataTitle] = useState([]);
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPlaylist({
+      playlistData: playlistDataTitle,
+    }))
+  }, [])
+
 
   const getDataSearch = (searchTracks) => {
-    setIsInSearch(true);
     const selectedTracks = filterSelectedTracks();
     const searchDistincTracks = searchTracks.filter(
       (track) => !selectedTracksUri.includes(track.uri)
@@ -94,7 +100,7 @@ const CreatePlaylist = () => {
       </div>
       <div className="playlist__item">
       <p>Your <span>Playlist</span></p>
-      <Playlist titlePlaylist={titlePlaylist} desc={descPlaylist} />
+      <Playlist titlePlaylist={titlePlaylist}/>
       </div>
       <div className="tracks__item">
         {tracks.map((track) => (

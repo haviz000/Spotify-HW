@@ -7,7 +7,7 @@ const LoginAlert = () => {
     <div>
       <h1>Please Login to Access this Page :)</h1>
       <Link to="/">
-        <a>Back to Home</a>
+        <p>Back to Home</p>
       </Link>
     </div>
   );

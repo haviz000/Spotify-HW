@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./playlist.css";
 
-const Playlist = ({imageUrl,title,artist,popularity,key,desc,titlePlaylist}) => {
+const Playlist = ({titlePlaylist}) => {
   return (
     <>
       <div className="playlist__container">
         <div className="title__group">
-          <a className="title" href="#">{titlePlaylist}</a>
+          <Link to="/your-playlist" className="title">{titlePlaylist}</Link>
         </div>
       </div>
     </>

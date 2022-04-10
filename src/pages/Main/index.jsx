@@ -49,19 +49,6 @@ const Main = () => {
           </div>
         )
       }
-      {/* {
-        isAuth && (
-          <div className="login__container">
-            <ul>
-              <li>
-                <Link to='/create-playlist'>
-                  <button className="login__btn">Create Playlist</button>
-                </Link>
-              </li>
-            </ul>
-          </div>
-        )
-      } */}
     </>
   );
 };
