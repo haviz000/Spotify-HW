@@ -1,14 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusSquare } from "@fortawesome/free-solid-svg-icons";
 import SearchBar from "./SearchBar";
 import Tracks from "./Tracks";
 import ModalPlaylist from "./ModalPlaylist";
 import Playlist from "./Playlist";
-
 import './createPlaylist.css'
-import { useDispatch } from "react-redux";
-import { getPlaylist } from "../../slice/playlistDataSlice";
 
 
 
@@ -16,18 +13,6 @@ const CreatePlaylist = () => {
   const [tracks, setTracks] = useState([]);
   const [selectedTracksUri, setSelectedTracksUri] = useState([]);
   const [showModalPlaylist, setShowModalPlaylist] = useState(false);
-  const [titlePlaylist, setTitlePlaylist] = useState("");
-  const [playlistData, setPlaylistData] = useState([]);
-  const [playlistDataTitle, setPlaylistDataTitle] = useState([]);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getPlaylist({
-      playlistData: playlistDataTitle,
-    }))
-  }, [])
-
 
   const getDataSearch = (searchTracks) => {
     const selectedTracks = filterSelectedTracks();
@@ -54,31 +39,23 @@ const CreatePlaylist = () => {
   const handleModalClick = () => {
     const selectedTracks = filterSelectedTracks();
     if (selectedTracks.length !== 0) {
-      setPlaylistData(selectedTracks);
       setShowModalPlaylist(true);
     } else {
       alert("Please choose song!");
     }
   };
 
-  const getTitle = (titlePlaylist) => {
-    setTitlePlaylist(titlePlaylist);
-  };
 
-  const getPlaylistDatatitle = (playlistDataTitle) => {
-    setPlaylistDataTitle(playlistDataTitle);
-  };
 
   const Logout = () => {
     window.location.replace("http://localhost:3000");
-
   };
 
   return (
     <div className="container">
       <div className="search__item">
-      <div className="logout">
-            <button className="logout__btn" onClick={Logout}>Log Out</button>
+        <div className="logout">
+          <button className="logout__btn" onClick={Logout}>Log Out</button>
         </div>
         <SearchBar getDataSearch={(tracks) => getDataSearch(tracks)} />
         <div className="create__playlist">
@@ -87,20 +64,16 @@ const CreatePlaylist = () => {
             Create Playlist
           </button>
           <ModalPlaylist
-            getTitle={(titlePlaylist) => getTitle(titlePlaylist)}
             onClose={() => setShowModalPlaylist(false)}
             show={showModalPlaylist}
-            playlists={playlistData}
-            getPlaylistDatatitle={(playlistDataTitle) =>
-              getPlaylistDatatitle(playlistDataTitle)
-            }
+            uriTracks={selectedTracksUri}
           />
-          
+
         </div>
       </div>
       <div className="playlist__item">
-      <p>Your <span>Playlist</span></p>
-      <Playlist titlePlaylist={titlePlaylist}/>
+        <p>Your <span>Playlist</span></p>
+        <Playlist />
       </div>
       <div className="tracks__item">
         {tracks.map((track) => (

@@ -1,6 +1,8 @@
 .playlist {
 	position: relative;
-	display: flex;
+	display: grid;
+  grid-gap: 1 rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 	background-color: #1C2025;
 	color: #DCDCE0;
 	padding: 30px;
@@ -9,11 +11,13 @@
 	width: 650px;
 	height: 200px;
 	justify-content: space-evenly;
-  margin-left: 20%;
+  margin-left: 36%;
+  
   }
 
 ul{
     list-style-type: none;
+    display: grid;
 }
   .album__img {
 	width: 150px;

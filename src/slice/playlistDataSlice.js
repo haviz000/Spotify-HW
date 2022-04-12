@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const playlistDataSlice = createSlice({
   name: 'playlist',
   initialState: {
-    playlistData: [],
+    playlistData: {},
     
   },
   reducers: {

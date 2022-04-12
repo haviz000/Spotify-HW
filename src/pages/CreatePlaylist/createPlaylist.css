@@ -13,11 +13,11 @@
   text-align: left;
 }
 .playlist__item span{
-  color: #43e57d;
+  /* color: #43e57d; */
 }
-.tracks__item{
+/* .track__items{
     grid-area: main;
-}
+} */
 .right__item{grid-area: right;}
 .footer__item{grid-area: footer;}
 

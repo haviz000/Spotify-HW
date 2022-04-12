@@ -1,38 +1,52 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { addToPlaylist, createPlaylist } from "../../../utils/dataApi";
+import { getPlaylist } from "../../../slice/playlistDataSlice";
 import "./modal.css";
 
-const ModalPlaylist = ({
-  show,
-  onClose,
-  getTitle,
-  getDesc,
-  playlists,
-  getPlaylistDatatitle,
-}) => {
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
+const ModalPlaylist = ({ show, onClose, uriTracks }) => {
+  const accessToken = useSelector((state) => state.auth.accessToken);
+  const dispatch = useDispatch();
 
+  const [form, setForm] = useState({
+    title: "",
+    desc: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
   if (!show) {
     return null;
   }
 
-  const handleInputTitle = (e) => {
-    setTitle(e.target.value);
-  };
-  const handleInputDesc = (e) => {
-    setDesc(e.target.value);
-  };
-  const datas = Object.assign(playlists, { title: title, desc: desc });
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (title.length < 10) {
-      alert("Minimum title 10 character");
+    if (form.title.length < 10) {
+      alert("title must be more than 10 characters");
     } else {
-      getTitle(title);
-      getPlaylistDatatitle(datas);
-      alert("playlist added successfully");
-      onClose();
+      try {
+        const resCreatePlaylist = await createPlaylist(
+          accessToken,
+          process.env.REACT_APP_SPOTIFY_USER_ID,
+          {
+            name: form.title,
+            description: form.desc,
+          }
+        );
+        console.log(resCreatePlaylist);
+        dispatch(
+          getPlaylist({
+            playlistData: resCreatePlaylist,
+          })
+        );
+        await addToPlaylist(accessToken, resCreatePlaylist.id, uriTracks);
+        setForm({ title: "", description: "" });
+        onClose(true);
+      } catch (e) {
+        alert(e);
+      }
     }
   };
   return (
@@ -45,11 +59,22 @@ const ModalPlaylist = ({
           <form className="form" onSubmit={handleSubmit}>
             <div className="title">
               <label>Title</label>
-              <input type="text" onChange={handleInputTitle} className="input"></input>
+              <input
+                type="text"
+                name="title"
+                value={form.title}
+                onChange={handleChange}
+                className="input"
+              ></input>
             </div>
             <div className="desc">
               <label>Description</label>
-              <textarea onChange={handleInputDesc} className="textarea"></textarea>
+              <textarea
+                name="desc"
+                value={form.desc}
+                onChange={handleChange}
+                className="textarea"
+              ></textarea>
             </div>
             <button className="save" type="submit">
               Create
