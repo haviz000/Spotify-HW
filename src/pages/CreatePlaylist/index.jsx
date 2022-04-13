@@ -5,11 +5,13 @@ import SearchBar from "./SearchBar";
 import Tracks from "./Tracks";
 import ModalPlaylist from "./ModalPlaylist";
 import Playlist from "./Playlist";
+import { Button } from "@mui/material";
 import './createPlaylist.css'
 
 
 
-const CreatePlaylist = () => {
+
+const CreatePlaylist = (props) => {
   const [tracks, setTracks] = useState([]);
   const [selectedTracksUri, setSelectedTracksUri] = useState([]);
   const [showModalPlaylist, setShowModalPlaylist] = useState(false);
@@ -46,7 +48,6 @@ const CreatePlaylist = () => {
   };
 
 
-
   const Logout = () => {
     window.location.replace("http://localhost:3000");
   };
@@ -55,12 +56,15 @@ const CreatePlaylist = () => {
     <div className="container">
       <div className="search__item">
         <div className="logout">
-          <button className="logout__btn" onClick={Logout}>Log Out</button>
+          <Button
+            style={{backgroundColor:"#1ED760",color:"#fff"}}
+            className="logout__btn" 
+            onClick={Logout}>Log Out</Button>
         </div>
         <SearchBar getDataSearch={(tracks) => getDataSearch(tracks)} />
         <div className="create__playlist">
-          <button className="btn__playlist" onClick={handleModalClick}>
-            <FontAwesomeIcon icon={faPlusSquare} className="icon_playlist" />{" "}
+          <button onClick={handleModalClick} className="btn__playlist" >
+            <FontAwesomeIcon icon={faPlusSquare} className="icon_playlist" /> {" "}
             Create Playlist
           </button>
           <ModalPlaylist

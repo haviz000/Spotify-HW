@@ -55,9 +55,9 @@
   text-align: right;
 }
 .logout__btn{
-  background-color: #1ED760;
-  width: 70px;
-  height: 30px;
+  background: #1ED760;
+  width: 90px;
+  height: 40px;
   border-radius: 20px;
   cursor: pointer;
 }

@@ -3,7 +3,9 @@ import './searchBar.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
-import {searchTrack} from '../../../utils/dataApi'
+import {searchTrack} from '../../../utils/dataApi';
+import { TextField } from "@mui/material";
+
 
 const SearchBar = ({getDataSearch}) => {
   const accessToken = useSelector((state) => state.auth.accessToken);
@@ -36,11 +38,11 @@ const SearchBar = ({getDataSearch}) => {
           </h1>
         </div>
         <form className="field__playlist" onSubmit={handleSubmit}>
-          <input
+          <TextField
             className="input__playlist"
             placeholder="Artist, Song, or Podcast"
             onChange={handleInput}
-          ></input>
+          ></TextField>
 
           <button type="submit" className="btn__search">
             <FontAwesomeIcon className="search__icon" icon={faSearch} />
