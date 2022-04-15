@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import PropTypes from 'prop-types'
 import "./tracks.css";
+
 const Tracks = ({ imageUrl, title, artist, toggleSelect,key,popularity }) => {
 
     const [isSelected, setIsSelected] = useState(false);
@@ -38,3 +40,12 @@ const Tracks = ({ imageUrl, title, artist, toggleSelect,key,popularity }) => {
 };
 
 export default Tracks;
+
+Tracks.propTypes =  {
+  imageUrl:PropTypes.string.isRequired,
+  title:PropTypes.string.isRequired,
+  artist:PropTypes.string.isRequired,
+  toggleSelect:PropTypes.func.isRequired,
+  key:PropTypes.string.isRequired,
+  popularity:PropTypes.string.isRequired
+}

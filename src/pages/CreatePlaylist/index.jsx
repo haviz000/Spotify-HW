@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusSquare } from "@fortawesome/free-solid-svg-icons";
-import SearchBar from "./SearchBar";
-import Tracks from "./Tracks";
+import SearchBar from "./SearchBar/index.tsx";
+import Tracks from "./Tracks/index.tsx";
 import ModalPlaylist from "./ModalPlaylist";
 import Playlist from "./Playlist";
 import { Button } from "@mui/material";

@@ -5,11 +5,13 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 import {searchTrack} from '../../../utils/dataApi';
 import { TextField } from "@mui/material";
+import PropTypes from 'prop-types'
+
 
 
 const SearchBar = ({getDataSearch}) => {
-  const accessToken = useSelector((state) => state.auth.accessToken);
-
+  const accessToken:string = useSelector((state) => state.auth.accessToken);
+  
   const [text, setText] = useState("");
 
   const handleInput = (e) => {
@@ -21,8 +23,9 @@ const SearchBar = ({getDataSearch}) => {
 
     try {
       const response = await searchTrack(text, accessToken);
-
-      const tracks = response.tracks.items;
+      
+      const tracks:[] = response.tracks.items;
+      
       getDataSearch(tracks);
     } catch (e) {
       alert(e);
@@ -55,3 +58,7 @@ const SearchBar = ({getDataSearch}) => {
 };
 
 export default SearchBar;
+
+SearchBar.propTypes = {
+  getDataSearch:PropTypes.func.isRequired
+}
