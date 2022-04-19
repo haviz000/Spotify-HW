@@ -13,7 +13,7 @@ const Tracks = ({ imageUrl, title, artist, toggleSelect,key,popularity }) => {
 
   return (
     <div>
-      <ul key={key} className="playlist">
+      <ul key={key} data-testid="track" className="playlist">
         <li>
           <img className="album__img" src={imageUrl} alt={title} />
           <div className="text__group">

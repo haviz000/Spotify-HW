@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './searchBar.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { useSelector } from "react-redux";
+import { RootStateOrAny, useSelector } from "react-redux";
 import {searchTrack} from '../../../utils/dataApi';
 import { TextField } from "@mui/material";
 import PropTypes from 'prop-types'
@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 
 
 const SearchBar = ({getDataSearch}) => {
-  const accessToken:string = useSelector((state) => state.auth.accessToken);
+  const accessToken:string = useSelector((state:RootStateOrAny) => state.auth.accessToken);
   
   const [text, setText] = useState("");
 
