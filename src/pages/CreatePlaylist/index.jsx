@@ -49,7 +49,8 @@ const CreatePlaylist = (props) => {
 
 
   const Logout = () => {
-    window.location.replace("http://localhost:3000");
+    const logout = window.location.hostname;
+    window.location.replace(logout);
   };
 
   return (

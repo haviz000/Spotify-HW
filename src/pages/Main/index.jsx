@@ -29,7 +29,8 @@ const Main = () => {
   const getAuthorize = () => {
     const state = Math.random().toFixed(16).split('.')[1];
     const clientId = process.env.react_app_spotify_id;
-    return `https://accounts.spotify.com/authorize?response_type=${config.RESPONSE_TYPE}&client_id=${clientId}&redirect_uri=${config.REDIRECT_URI}&state=${state}&scope=${config.SPOTIFY_SCOPE}`;
+    const REDIRECT_URI = window.location.hostname;
+    return `https://accounts.spotify.com/authorize?response_type=${config.RESPONSE_TYPE}&client_id=${clientId}&redirect_uri=${REDIRECT_URI}&state=${state}&scope=${config.SPOTIFY_SCOPE}`;
 
   };
 
