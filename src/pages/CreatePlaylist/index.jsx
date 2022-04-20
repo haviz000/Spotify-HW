@@ -7,6 +7,7 @@ import ModalPlaylist from "./ModalPlaylist";
 import Playlist from "./Playlist";
 import { Button } from "@mui/material";
 import './createPlaylist.css'
+import config from "../../utils/Config";
 
 
 
@@ -49,8 +50,7 @@ const CreatePlaylist = (props) => {
 
 
   const Logout = () => {
-    const logout = window.location.hostname;
-    window.location.replace(logout);
+    window.location.replace(config.REDIRECT_URI);
   };
 
   return (
