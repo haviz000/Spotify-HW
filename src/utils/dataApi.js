@@ -75,7 +75,7 @@ export const getPlaylist = async (accessToken) => {
   };
 
   const response = await axios.get(
-    `${config.SPOTIFY_BASE_URL}/users/${process.env.REACT_APP_SPOTIFY_USER_ID}/playlist`,
+    `${config.SPOTIFY_BASE_URL}/users/${process.env.react_app_spotify_user_id}/playlist`,
     requestOptions
   );
 
